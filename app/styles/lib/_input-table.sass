@@ -1,0 +1,28 @@
+.table-file
+ @extend .main-file
+ font:
+  size: small
+ margin:
+  top: 0px
+  left: 2px
+  right: 2px
+  bottom: 0px
+
+.table-text, 
+.table-password
+ @extend .main-text
+ font:
+  size: small
+ padding: 0px 0px
+
+
+.table-button,
+.table-submit, 
+.table-reset, 
+.table-checkbox, 
+.table-radio
+ @include button-events
+ @extend .main-button
+ font:
+  size: small
+ padding: 0px 0px
