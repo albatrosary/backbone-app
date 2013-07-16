@@ -22,11 +22,10 @@ define [
     render: () ->
       $("#notes-list").html @template
       @collection.each (item) ->
-      	$("#notes-entry").append "<li>" + item.get("title") + "</li>"
+      	$("#notes-entry").append JST["app/scripts/templates/list-elements.ejs"] {"title": item.get("title")}
  
     addOne: () ->
       @render()
 
     changeOne: () ->
       @render()
-  

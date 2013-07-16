@@ -26,10 +26,24 @@ define [
 
     _onClickUpdate: () ->
       model = @collection.get {id: $("#notes-id").val()}
-      model.set {title: $("#notes-text").val(), contents: $("#notes-contents").val()}, {silent: false}, { validate: true }
-      
+      model.set (
+        {
+          title: $("#notes-text").val()
+          contents: $("#notes-contents").val()
+        }
+        { silent: false }
+        { validate: true }
+      )
+
     _onClickAdded: () ->
       ids = _.uniqueId "notes_"
-      @collection.add {id: ids, title: $("#notes-text").val(), contents: $("#notes-contents").val()}, { validate: true }
+      @collection.add (
+        {
+          id: ids
+          title: $("#notes-text").val()
+          contents: $("#notes-contents").val()
+        }
+        { validate: true }
+      )
       $("#notes-id").val ids
       
