@@ -1,4 +1,9 @@
-# global define
+###
+  (c) 2013-2014 albatrosary
+  Notepad may be freely distributed under the MIT license.
+  For all details and documentation:
+  https://github.com/albatrosary/backbone-app
+###
 define [
   "jquery"
   "underscore"
@@ -6,26 +11,21 @@ define [
   "templates"
 ], ($, _, Backbone, JST) ->
   "use strict"
-  class ListView extends Backbone.View
+  class ShowView extends Backbone.View
 
     el: $("#main")
 
     template: JST["app/scripts/templates/list.ejs"]
 
-    initialize: () ->
-      # ここでレンダリングしない
-      #this.render()
-      @listenTo @collection, 'add', @addOne # model が追加されたら
-      @listenTo @collection, 'change', @changeOne # modelが更新されたら
-      #this.listenTo this.collection, 'all', this.render # すべてのイベント
- 
-    render: () ->
-      $("#notes-list").html @template
-      @collection.each (item) ->
-      	$("#notes-entry").append JST["app/scripts/templates/list-elements.ejs"] {"title": item.get("title")}
- 
-    addOne: () ->
-      @render()
+    # initialize でrenderをしない！！
+    #initialize: () ->
+    #  this.render()
 
-    changeOne: () ->
-      @render()
+    render: () ->
+      $("#main").html @template
+      @collection.each (item) ->
+        $("#notes-list").append JST["app/scripts/templates/list-elements.ejs"] {"title": item.get("title"), "contents": item.get("contents")}
+      #  "<li>" + item.get("title") + " <br> " + item.get("contents") + "</li>"
+
+
+    

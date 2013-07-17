@@ -1,4 +1,11 @@
-/*global require*/
+/*
+  main.js 0.0.1
+
+  (c) 2013-2014 albatrosary
+  Notepad may be freely distributed under the MIT license.
+  For all details and documentation:
+  https://github.com/albatrosary/backbone-app
+*/
 'use strict';
 
 require.config({
