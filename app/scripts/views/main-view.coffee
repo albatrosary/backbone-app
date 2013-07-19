@@ -16,20 +16,22 @@ define [
   "use strict"
   class NotesView extends Backbone.View
 
-    el: $("#main")
+    el: $ "#main"
 
     template: JST["app/scripts/templates/main.ejs"]
     
-    initialize: () ->
+    initialize: ->
       # ここでレンダリングしない！
       # メモ本体
       @note = new Notes { collection: @collection }
       #リスト
       @titlelist = new Titlelists { collection: @collection }
-
-    render: () ->
+      return
+      
+    render: ->
       $("#main").html @template
       @note.render()
       @titlelist.render()
+      this
 
   

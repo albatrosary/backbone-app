@@ -14,7 +14,7 @@ define [
   "use strict"
   class ShowView extends Backbone.View
 
-    el: $("#main")
+    el: $ "#main"
 
     template: JST["app/scripts/templates/list.ejs"]
 
@@ -24,11 +24,12 @@ define [
     #initialize: () ->
     #  this.render()
 
-    render: () ->
+    render: ->
       $("#main").html @template
       # collection.each の中に定義された this が ListView に bind されるよう fat arrow で定義
       @collection.each (item) =>
         $("#notes-list").append @templateElements {"title": item.get("title"), "contents": item.get("contents")}
+      this
 
 
     

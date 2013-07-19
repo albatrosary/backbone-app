@@ -15,15 +15,6 @@ define [
   'use strict'
   class NotesRouter extends Backbone.Router
 
-    initialize: () ->
-      @collection = new NotesCollections()
-
-      @mview = new MainViews
-        collection: @collection
-
-      @lview = new ListViews
-        collection: @collection
-
     # localhost:9000/#main でコールすると mains 関数が実行される
     # "": localhost:9000 の呼び出し
     # "maim": localhost:9000/#main の呼び出し
@@ -33,8 +24,18 @@ define [
       "main": "mains"
       "show": "lists"
 
-    mains: () ->
+    initialize: ->
+      @collection = new NotesCollections()
+
+      @mview = new MainViews
+        collection: @collection
+
+      @lview = new ListViews
+        collection: @collection
+      return
+
+    mains: ->
       @mview.render()
 
-    lists: () ->
+    lists: ->
       @lview.render()

@@ -14,28 +14,30 @@ define [
   "use strict"
   class ListView extends Backbone.View
 
-    el: $("#main")
+    el: $ "#main"
 
     template: JST["app/scripts/templates/title-list.ejs"]
 
     templateElements: JST["app/scripts/templates/title-list-elements.ejs"] 
 
-    initialize: () ->
+    initialize: ->
       # ここでレンダリングしない
       #this.render()
       @listenTo @collection, 'add', @addOne # model が追加されたら
       @listenTo @collection, 'change', @changeOne # modelが更新されたら
       #this.listenTo this.collection, 'all', this.render # すべてのイベント
+      return
  
-    render: () ->
+    render: ->
       debugger
       $("#notes-list").html @template
       # collection.each の中に定義された this が ListView に bind されるよう fat arrow で定義
       @collection.each (item) =>
-      	$("#notes-entry").append @templateElements {"title": item.get("title")}
+      	$("#notes-entry").append @templateElements {"title": item.get "title"}
+      this
  
-    addOne: () ->
+    addOne: ->
       @render()
 
-    changeOne: () ->
+    changeOne: ->
       @render()

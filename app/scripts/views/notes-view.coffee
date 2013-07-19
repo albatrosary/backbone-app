@@ -15,7 +15,7 @@ define [
   class NotesView extends Backbone.View
 
   	# TODO #notesとしたところ eventsハンドラーが取得できなかった
-    el: $("#main")
+    el: $ "#main"
 
     template: JST["app/scripts/templates/notes.ejs"]
 
@@ -27,15 +27,17 @@ define [
     #initialize: () ->
     #  this.render()
 
-    render: () ->
+    render: ->
       $("#notes").html @template
+      this
 
-    _onClickUpdate: () ->
+    _onClickUpdate: ->
       model = @collection.get {id: $("#notes-id").val()}
       model.set { title: $("#notes-text").val(), contents: $("#notes-contents").val() }, { silent: false }, { validate: true }
-
-    _onClickAdded: () ->
+      return
+      
+    _onClickAdded: ->
       ids = _.uniqueId "notes_"
       @collection.add { id: ids, title: $("#notes-text").val(), contents: $("#notes-contents").val() }, { validate: true }
       $("#notes-id").val ids
-      
+      return
