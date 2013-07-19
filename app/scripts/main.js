@@ -32,6 +32,24 @@ require([
     'backbone',
     './routes/notes-router'
 ], function (Backbone, NotesRouter) {
+
+    // Google Analytics の設定をする
+    // JSエラーが発生した際に呼び出されるイベント
+    window.onerror = function(message, fileName, lineNumber) {
+      
+        // 送信するメッセージを生成します。
+        var message = 'message:' + message
+            + ', fileName:' + fileName 
+            + ', line:' + lineNumber
+            + ', href:' + location.href
+            + ', userAgent:' + window.navigator.userAgent;
+
+        // エラー内容をGoogle Analyticsへ送信します。
+        // _gaq.push(['_trackEvent', 'Error', 'JSError', message]);
+        console.log(message);
+        alert(message);
+    }; 
+
     // メモ本体とリスト
     var NotesRouter = new NotesRouter();
     Backbone.history.start();

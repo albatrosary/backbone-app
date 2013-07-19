@@ -17,15 +17,17 @@ define [
 
     template: JST["app/scripts/templates/list.ejs"]
 
+    templateElements: JST["app/scripts/templates/list-elements.ejs"]
+
     # initialize でrenderをしない！！
     #initialize: () ->
     #  this.render()
 
     render: () ->
       $("#main").html @template
-      @collection.each (item) ->
-        $("#notes-list").append JST["app/scripts/templates/list-elements.ejs"] {"title": item.get("title"), "contents": item.get("contents")}
-      #  "<li>" + item.get("title") + " <br> " + item.get("contents") + "</li>"
+      # collection.each の中に定義された this が ListView に bind されるよう fat arrow で定義
+      @collection.each (item) =>
+        $("#notes-list").append @templateElements {"title": item.get("title"), "contents": item.get("contents")}
 
 
     

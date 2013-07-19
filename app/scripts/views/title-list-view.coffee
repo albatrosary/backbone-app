@@ -17,6 +17,8 @@ define [
 
     template: JST["app/scripts/templates/title-list.ejs"]
 
+    templateElements: JST["app/scripts/templates/title-list-elements.ejs"] 
+
     initialize: () ->
       # ここでレンダリングしない
       #this.render()
@@ -25,9 +27,11 @@ define [
       #this.listenTo this.collection, 'all', this.render # すべてのイベント
  
     render: () ->
+      debugger
       $("#notes-list").html @template
-      @collection.each (item) ->
-      	$("#notes-entry").append JST["app/scripts/templates/title-list-elements.ejs"] {"title": item.get("title")}
+      # collection.each の中に定義された this が ListView に bind されるよう fat arrow で定義
+      @collection.each (item) =>
+      	$("#notes-entry").append @templateElements {"title": item.get("title")}
  
     addOne: () ->
       @render()

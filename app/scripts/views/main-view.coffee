@@ -21,7 +21,7 @@ define [
     
     initialize: () ->
       # ここでレンダリングしない！
-      # メモ本体      
+      # メモ本体
       @note = new Notes { collection: @collection }
       #リスト
       @titlelist = new Titlelists { collection: @collection }
