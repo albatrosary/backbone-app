@@ -35,6 +35,18 @@ define [
       model = @collection.get
         id: $("#notes-id").val()
       model.set
+      #  title:
+      #  contents:
+      #, silent: false
+      #, validate: true
+      # と
+      #  title:
+      #  contents:
+      #,
+      #  silent: false
+      #, 
+      #  validate: true
+      # は意味が異なる
         title: $("#notes-text").val()
         contents: $("#notes-contents").val()
       , 
