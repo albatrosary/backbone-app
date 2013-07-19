@@ -10,6 +10,7 @@ define [
   "backbone"
   "templates"
 ], ($, _, Backbone, JST) ->
+  # Function-level strict mode syntax
   "use strict"
   class ListView extends Backbone.View
 

@@ -11,6 +11,7 @@ define [
   '../views/list-view'
   '../collections/notes-collection'
 ], ($, Backbone, MainViews, ListViews, NotesCollections) ->
+  # Function-level strict mode syntax
   'use strict'
   class NotesRouter extends Backbone.Router
 
@@ -23,8 +24,12 @@ define [
       @lview = new ListViews
         collection: @collection
 
-    # localhost:9000/#main でコールすると mains関数が実行される
+    # localhost:9000/#main でコールすると mains 関数が実行される
+    # "": localhost:9000 の呼び出し
+    # "maim": localhost:9000/#main の呼び出し
+    # "show": localhost:9000/#show の呼び出し
     routes:
+      "": "mains"
       "main": "mains"
       "show": "lists"
 

@@ -12,6 +12,7 @@ define [
   "./notes-view"
   "./title-list-view"
 ], ($, _, Backbone, JST, Notes, Titlelists) ->
+  # Function-level strict mode syntax
   "use strict"
   class NotesView extends Backbone.View
 

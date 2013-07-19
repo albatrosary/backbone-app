@@ -8,6 +8,7 @@ define [
   "underscore"
   "backbone"
 ], (_, Backbone) ->
+  # Function-level strict mode syntax
   "use strict"
   class NotesModel extends Backbone.Model
   	
