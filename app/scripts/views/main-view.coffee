@@ -23,9 +23,11 @@ define [
     initialize: ->
       # ここでレンダリングしない！
       # メモ本体
-      @note = new Notes { collection: @collection }
+      @note = new Notes
+        collection: @collection
       #リスト
-      @titlelist = new Titlelists { collection: @collection }
+      @titlelist = new Titlelists
+        collection: @collection
       return
       
     render: ->
