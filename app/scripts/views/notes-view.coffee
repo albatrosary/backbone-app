@@ -53,6 +53,7 @@ define [
         silent: false
       ,
         validate: true
+      # model.set({title: $("#notes-text").val(), contents: $("#notes-contents").val()}, {silent: false} ,{validate: true})
       return
       
     _onClickAdded: ->

@@ -19,6 +19,8 @@ define [
     el: $ "#main"
 
     template: JST["app/scripts/templates/main.ejs"]
+
+    fromData: {}
     
     initialize: ->
       # ここでレンダリングしない！
