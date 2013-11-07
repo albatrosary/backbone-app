@@ -30,7 +30,6 @@ define [
       return
  
     render: ->
-      debugger
       $("#notes-list").html @template
       # collection.each の中に定義された this が ListView に bind されるよう fat arrow で定義
       @collection.each (item) =>
