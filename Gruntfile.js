@@ -165,14 +165,14 @@ module.exports = function (grunt) {
                 options: {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '<%= yeoman.app %>/scripts',
-                    optimize: 'none',
+                    optimize: 'uglify2',
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
                         // CoffeeScript のコンパイル先（baseUrl からの相対パス）
                         'collections': '../../.tmp/scripts/collections',
                         'models': '../../.tmp/scripts/models',
                         'routes': '../../.tmp/scripts/routes',
-                        'views': '../../.tmp/scripts/views'
+                        'views': '../../.tmp/scripts/views',
                     },
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
