@@ -4,7 +4,11 @@ body
   color: $font-color
  @include marginZero
  background:
-  color: #ffe
+  color: #ccc
+
+footer
+ text-align: center
+ padding: 35px 0px 0px 0px
 
 #main
  font:
@@ -12,9 +16,11 @@ body
  background:
   color: #ffe
  height: $mainHeight
- +border-top-left-radius(3px)
- +border-top-right-radius(3px)
+ +border-bottom-left-radius(5px)
+ +border-bottom-right-radius(5px)
+ +box-shadow(5px 5px 5px #999)
  overflow: hidden
  text-align: center
  margin: auto
- width: 1024px 
+ width: 520px
+ padding: 35px 5px 5px 5px
