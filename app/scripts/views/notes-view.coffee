@@ -14,7 +14,8 @@ define [
   "use strict"
   class NotesView extends Backbone.View
 
-  	# TODO #notesとしたところ eventsハンドラーが取得できなかった
+  	# すでに存在する DOM エレメントを指定すること
+    # el で定義された DOM が events で定義される検索対象になります
     el: $ "#main"
 
     template: JST["app/scripts/templates/notes.ejs"]
