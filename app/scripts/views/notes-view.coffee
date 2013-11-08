@@ -32,6 +32,7 @@ define [
       $("#notes").html @template
       this
 
+    # #added がクリックされたとき collection にあるモデルを更新する
     _onClickUpdate: ->
       model = @collection.get
         id: $("#notes-id").val()
@@ -56,7 +57,8 @@ define [
         validate: true
       # model.set({title: $("#notes-text").val(), contents: $("#notes-contents").val()}, {silent: false} ,{validate: true})
       return
-      
+    
+    # #added がクリックされたとき collection ヘ登録する
     _onClickAdded: ->
       ids = _.uniqueId "notes_"
       @collection.add

@@ -14,5 +14,5 @@ define [
   class NotesCollection extends Backbone.Collection
   	
     model: NotesModel
-  	
+    
     #localStorage: new Backbone.LocalStorage('notes-sample')
