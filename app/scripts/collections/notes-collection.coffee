@@ -7,12 +7,13 @@
 define [
   "underscore"
   "backbone"
+  "backboneLocalStorage"
   "../models/notes-model"
-], (_, Backbone, NotesModel) ->
+], (_, Backbone, LocalStorage, NotesModel) ->
   # Function-level strict mode syntax
   "use strict"
   class NotesCollection extends Backbone.Collection
   	
     model: NotesModel
-    
-    #localStorage: new Backbone.LocalStorage('notes-sample')
+  	
+    localStorage: new LocalStorage('notes-demo')

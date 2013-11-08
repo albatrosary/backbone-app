@@ -61,7 +61,7 @@ define [
     # #added がクリックされたとき collection ヘ登録する
     _onClickAdded: ->
       ids = _.uniqueId "notes_"
-      @collection.add
+      @collection.create
         id: ids
         title: $("#notes-text").val()
         contents: $("#notes-contents").val()
