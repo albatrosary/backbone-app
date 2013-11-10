@@ -18,25 +18,26 @@ define [
     # el で定義された DOM が events で定義される検索対象になります
     el: $ "#main"
 
+    # 入力項目のテンプレート
     template: JST["app/scripts/templates/notes.ejs"]
 
+    # 入力項目で発生するイベント
     events:
       'click #update': '_onClickUpdate'
       'click #added': '_onClickAdded'
+      'click #deleteAll': '_onClickDeleteAll'
     
-    # ここでレンダリングしない
-    #initialize: () ->
-    #  this.render()
-
+    # 入力項目のレンダリング
     render: ->
       $("#notes").html @template
       this
 
     # #added がクリックされたとき collection にあるモデルを更新する
     _onClickUpdate: ->
+      console.log "_onClickUpdate"
       model = @collection.get
         id: $("#notes-id").val()
-      model.set
+      model.save   # set
       #  title:
       #  contents:
       #, silent: false
@@ -60,12 +61,18 @@ define [
     
     # #added がクリックされたとき collection ヘ登録する
     _onClickAdded: ->
-      ids = _.uniqueId "notes_"
-      @collection.create
-        id: ids
+      id = _.uniqueId "notes_"
+      @collection.create  # add
+        id: id
         title: $("#notes-text").val()
         contents: $("#notes-contents").val()
       , 
         validate: true
-      $("#notes-id").val ids
+      $("#notes-id").val id
       return
+
+    _onClickDeleteAll: ->
+      len = @collection.length - 1
+      for i in [0..len]
+        item = @collection.at 0
+        item.destroy()

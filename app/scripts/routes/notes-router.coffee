@@ -35,6 +35,7 @@ define [
       return
 
     mains: ->
+      # 入力・タイトル一覧のレンダリング
       @mview.render()
 
     lists: ->

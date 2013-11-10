@@ -14,7 +14,8 @@ define [
   "use strict"
   class ListElementView extends Backbone.View
 
-    el: $ "#main"
+    el: "#notes-entry"
+    #tagName: "li"
 
     template: JST["app/scripts/templates/title-list-elements.ejs"] 
 
@@ -22,14 +23,23 @@ define [
       @listenTo @model, 'change', @render
       @listenTo @model, 'destroy', @remove
       return
-    
-    render: ->
-      console.log "render"
-      $("#notes-entry").html @template
-        "title": @model.get "title"
 
-    events:
-      'click .delete': '_onClickDelete'
+    render: ->
+      $(@.el).append @template
+      #$("#notes-entry").append @template
+        #"id": @model.get "id"
+        "title": @model.get "title"
+    remove: ->
+      console.log "model.remove"
+
+    #events:
+    #  'click .delete': '_onClickDelete'
+    #  'click .change': '_onClickChange'
       
-    _onClickDelete: ->
-      @model.destroy() if confirm 'are you sure?'
+    #_onClickDelete: ->
+    #  @model.destroy() if confirm 'are you sure?'
+
+    #_onClickChange: (item)->
+    #  console.log "_onClickChange"
+
+

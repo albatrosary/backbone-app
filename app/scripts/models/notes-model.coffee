@@ -13,7 +13,7 @@ define [
   class NotesModel extends Backbone.Model
   	
   	defaults:
-  	  id: 0
+  	  id: ''
   	  title: 'title'
   	  contents: 'contents'
 
